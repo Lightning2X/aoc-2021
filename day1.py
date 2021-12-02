@@ -12,7 +12,7 @@ print("part 1: " + str(result1))
 
 result2 = 0
 for ind in range(0, len(lines)):
-    if(ind - 2 < 0):
+    if(ind < 2):
         continue
     if(ind + 1 == len(lines)):
         continue
