@@ -16,8 +16,7 @@ for ind in range(0, len(lines)):
         continue
     if(ind + 1 == len(lines)):
         continue
-    sum1 = lines[ind - 2] + lines[ind - 1] + lines[ind]
-    sum2 = lines[ind - 1] + lines[ind] + lines[ind + 1]
-    if(sum2 > sum1):
+    
+    if(lines[ind + 1] > lines[ind - 2]):
         result2 += 1
 print("part 2: " + str(result2))
