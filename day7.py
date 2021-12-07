@@ -7,26 +7,20 @@ maximum = max(crabs)
 costspart1 = [0] * (maximum - minimum)
 costspart2 = [0] * (maximum - minimum)
 
-def calculateCostpart1(crabs, ind):
-    cost = 0
+def calculateCosts(crabs, ind):
+    cost1 = 0
+    cost2 = 0
     for crab in crabs:
-        cost += abs(crab - ind)
-    return cost
+        n = abs(crab - ind)
+        cost1 += n
+        cost2 += int((n * (1 + n)) / 2)
+    return (cost1, cost2)
 
-
-def calculateCostpart2(crabs, ind):
-    cost = 0
-    for crab in crabs:
-        num = 0
-        # calculate triangular number
-        for sumNum in range(1, abs(crab - ind) + 1):
-            num += sumNum
-        cost += num
-    return cost
 
 for ind in range(minimum, maximum):
-    costspart1[ind] = calculateCostpart1(crabs, ind)
-    costspart2[ind] = calculateCostpart2(crabs, ind)
+    costs = calculateCosts(crabs, ind)
+    costspart1[ind] = costs[0]
+    costspart2[ind] = costs[1]
 
 print(min(costspart1))
 print(min(costspart2))
