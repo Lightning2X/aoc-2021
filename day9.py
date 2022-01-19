@@ -25,7 +25,8 @@ def outOfbounds(y, x):
     return x < 0 or x >= width or y >= height or y < 0
 
 def getBasinSize(grid, lowPoint):
-    accum = [0];
+    # This int is wrapped in a list so it becomes mutable and is passed by reference
+    accum = [0]
     visited = []
     surroundingPoints(grid, lowPoint, visited, accum)
     return accum[0]
@@ -52,4 +53,4 @@ lowPoints = getLowPoints(grid)
 print("part 1: " + str(sum(map(lambda t: grid[t[0]][t[1]] + 1, lowPoints))))
 basins = list(map(lambda t: getBasinSize(grid, t), lowPoints))
 basins.sort(reverse=True)
-print("part 2: " + str(basins[0] * basins[1] * basins [2]))
+print("part 2: " + str(basins[0] * basins[1] * basins[2]))
